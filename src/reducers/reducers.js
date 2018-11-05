@@ -14,7 +14,7 @@ export function game(state = initialState, action) {
 
 function checkHottestCity(state, action) {
   let { score, currentCities, history } = state;
-  
+
   let currentCitiesSorted = currentCities.sort((a, b) => {
     if (a.temp < b.temp) return -1;
     if (a.temp > b.temp) return 1;
@@ -32,5 +32,9 @@ function checkHottestCity(state, action) {
     won: isHighest
   });
 
-  return { currentCities: [], score, history: newHistory };
+  return Object.assign({}, state, {
+    currentCities: [],
+    score,
+    history: newHistory
+  });
 }
