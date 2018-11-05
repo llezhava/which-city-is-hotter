@@ -7,6 +7,8 @@ export default function game(state = initialState, action) {
       return Object.assign({}, state, { tempUnit: action.newUnit });
     case types.CHECK_IS_CITY_HOTTEST:
       return checkHottestCity(state, action);
+    case types.GET_NEXT_CITIES:
+      return getNextCities(state, action);
     default:
       return state;
   }
@@ -37,4 +39,12 @@ function checkHottestCity(state, action) {
     score,
     history: newHistory
   });
+}
+
+function getNextCities(state) {
+  return Object.assign({}, state, {currentCities: [generateCity(), generateCity()]})
+}
+
+function generateCity() {
+  return {name: "XXX", country: "XXX", temp: 19, id: 925}
 }

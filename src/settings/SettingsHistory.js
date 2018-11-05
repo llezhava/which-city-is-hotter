@@ -1,28 +1,30 @@
 import React, { Component } from "react";
 import Box from "../common/Box.js";
+import styles from "./settings.module.css";
+import Cities from "../common/Cities";
+import City from "../common/City";
 
 const Row = props => {
-  let { city, country, temp, result } = props;
+  let { cities, won } = props;
   return (
-    <div className="row">
-      <Box>
-        <ul>
-        <div>{city}</div>
-        <div>{country}</div>
-        <div>{temp}</div>
-        </ul>
-      </Box>
-      <div className ="result">X</div>
+    <div className={styles.row}>
+      <Cities>
+        {cities.map(city => (
+          <City {...city} />
+        ))}
+      </Cities>
+      <div className="result">{won ? "WON" : "LOST"}</div>
     </div>
   );
 };
 
 const History = props => {
-  let { historicalData } = props;
+  let { history } = props;
+  console.log(history);
   return (
-    <div className="History">
-    <h2>History</h2>
-      {historicalData.map(row => (
+    <div className={styles.history}>
+      <h2>History</h2>
+      {history.map(row => (
         <Row {...row} />
       ))}
     </div>

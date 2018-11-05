@@ -1,26 +1,36 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SettingsHistory from "./SettingsHistory";
 import SettingsUnits from "./SettingsUnits";
-import styles from "./settings.module.css"
+import { changeTempUnit } from "../actions/actions";
+import styles from "./settings.module.css";
 
-class SettingsPage extends Component {
-  constructor(props) {
-    super(props);
-  }
+const SettingsPage = ({ tempUnit, history, changeTempUnit }) => {
+  return (
+    <div className={styles.main}>
+      <Link to="/">
+        <button>Back</button>
+      </Link>
+      <h1>Settings</h1>
+      <SettingsUnits tempUnit={tempUnit} changeTempUnit={changeTempUnit} />
+      <SettingsHistory history={history} />
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className={styles.main}>
-        <Link to="/">
-          <button>Back</button>
-        </Link>
-        <h1>Settings</h1>
-        <SettingsUnits />
-        <SettingsHistory historicalData={[]} />
-      </div>
-    );
-  }
-}
+const mapStateToProps = state => {
+  let { tempUnit, history } = state;
+  return { tempUnit, history };
+};
 
-export default SettingsPage;
+const mapDispatchToProps = dispatch => {
+  return { changeTempUnit: newUnit => dispatch(changeTempUnit(newUnit)) };
+};
+
+const SettingsPageConnected = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SettingsPage);
+
+export default SettingsPageConnected;

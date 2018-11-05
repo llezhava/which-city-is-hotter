@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const Units = props => {
+const Units = ({tempUnit, changeTempUnit}) => {
   return (
     <div className="SettingsUnits">
     <h2>Units</h2>
