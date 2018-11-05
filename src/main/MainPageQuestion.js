@@ -1,36 +1,43 @@
 import React, { Component } from "react";
 import MainHeader from "./MainHeader";
 import Cities from "../common/Cities";
+import City from "../common/City";
+import Clickable from "../common/Clickable";
+import { checkIsCityHottest } from "../actions/actions";
+import { connect } from "react-redux";
 
-class MainPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cities: [
-        this.createCity("Berlin", "Germany", 15, 1592),
-        this.createCity("Auckland", "New Zealand", 12, 14520)
-      ],
-      score: 0
-    };
-  }
+const Question = ({ cities, score, isItBiggest }) => {
+  return (
+    <div>
+      {" "}
+      <MainHeader title="Which City is hotter?" score={score} />
+      <Cities>
+        {cities.map(city => (
+          <Clickable fn={() => isItBiggest(city.id)}>
+            <City {...city} key={city.id} temp={undefined} />
+          </Clickable>
+        ))}
+      </Cities>
+    </div>
+  );
+};
 
-  createCity(name, country, temp, id) {
-    return { name, country, temp, id };
-  }
+const mapStateToProps = state => {
+  return {
+    cities: state.currentCities,
+    score: state.score
+  };
+};
 
-  isItBiggest(id) {
-    console.log(id);
-    return true;
-  }
+const mapDispatchToProps = dispatch => {
+  return {
+    isItBiggest: id => dispatch(checkIsCityHottest(id))
+  };
+};
 
-  render() {
-    return (
-      <div>
-        <MainHeader title="Which City is hotter?" score={this.state.score} />
-        <Cities cities={this.state.cities} onClick={this.isItBiggest} />
-      </div>
-    );
-  }
-}
+const QuestionPage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Question);
 
-export default MainPage;
+export default QuestionPage;

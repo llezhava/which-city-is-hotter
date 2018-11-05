@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Box from "../common/Box.js";
 
 const City = props => {
-  let { city, country, temp } = props;
+  let { name, country, temp} = props;
   return (
     <Box>
-      <div>{city}</div>
+      <div>{name}</div>
       <div>{country}</div>
       {temp ? <div>{temp}</div> : ""}
     </Box>

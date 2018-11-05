@@ -1,7 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export function game(state = initialState, action) {
+export default function game(state = initialState, action) {
   switch (action.type) {
     case types.CHANGE_TEMP_UNIT:
       return Object.assign({}, state, { tempUnit: action.newUnit });
@@ -16,8 +16,8 @@ function checkHottestCity(state, action) {
   let { score, currentCities, history } = state;
 
   let currentCitiesSorted = currentCities.sort((a, b) => {
-    if (a.temp < b.temp) return -1;
-    if (a.temp > b.temp) return 1;
+    if (a.temp > b.temp) return -1;
+    if (a.temp < b.temp) return 1;
     else return 0;
   });
 
