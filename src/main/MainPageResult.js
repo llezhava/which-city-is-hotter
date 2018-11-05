@@ -6,14 +6,14 @@ import { getNextCities } from "../actions/actions";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom"
 
-const Result = ({ cities, title, score, getNextCities }) => {
+const Result = ({ cities, title, score, getNextCities, tempUnit }) => {
   return (
     <div>
       {" "}
       <MainHeader title={title} score={score} />
       <Cities>
         {cities.map(city => (
-          <City {...city} key={city.id} />
+          <City {...city} key={city.id} unit={tempUnit} />
         ))}
       </Cities>
       <Link to="/" ><button onClick={getNextCities}>Next Cities</button></Link>
@@ -26,12 +26,13 @@ function getTitle(bool) {
 }
 
 const mapStateToProps = state => {
-  let { history, score } = state;
+  let { history, score, tempUnit } = state;
   let latest = history[history.length - 1];
   return {
     title: getTitle(latest.won),
     cities: latest.cities,
-    score
+    score,
+    tempUnit
   };
 };
 

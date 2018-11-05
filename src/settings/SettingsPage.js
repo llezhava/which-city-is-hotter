@@ -14,7 +14,7 @@ const SettingsPage = ({ tempUnit, history, changeTempUnit }) => {
       </Link>
       <h1>Settings</h1>
       <SettingsUnits tempUnit={tempUnit} changeTempUnit={changeTempUnit} />
-      <SettingsHistory history={history} />
+      <SettingsHistory history={history} tempUnit={tempUnit} />
     </div>
   );
 };
