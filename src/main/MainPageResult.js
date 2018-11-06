@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MainHeader from "./MainHeader";
 import Cities from "../common/Cities";
 import City from "../common/City";
-import { getNextCities } from "../actions/actions";
+import { getNextCities } from "../state/actions/actions";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom"
 

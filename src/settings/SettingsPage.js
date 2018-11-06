@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SettingsHistory from "./SettingsHistory";
 import SettingsUnits from "./SettingsUnits";
-import { changeTempUnit } from "../actions/actions";
+import { changeTempUnit } from "../state/actions/actions";
 import styles from "./settings.module.css";
 
 const SettingsPage = ({ tempUnit, history, changeTempUnit }) => {

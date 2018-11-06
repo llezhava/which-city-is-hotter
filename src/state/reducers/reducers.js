@@ -1,6 +1,5 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
-import { cities } from "../services/cityIds";
 
 export default function game(state = initialState, action) {
   switch (action.type) {

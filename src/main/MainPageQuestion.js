@@ -4,7 +4,7 @@ import Cities from "../common/Cities";
 import City from "../common/City";
 import Clickable from "../common/Clickable";
 import IsFetching from "../common/IsFetching";
-import { checkIsCityHottest, getNextCities } from "../actions/actions";
+import { checkIsCityHottest, getNextCities } from "../state/actions/actions";
 import { connect } from "react-redux";
 
 class InitialCities extends Component {
