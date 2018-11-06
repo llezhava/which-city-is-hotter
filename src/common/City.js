@@ -17,9 +17,14 @@ function getTemp(temp, unit) {
     case "Celsius":
       return `${temp} C`;
     case "Fahrenheit":
-      return `${temp * 9/5 + 32} F`;
+      return `${convertToF(temp)} F`;
     default:
       return `${temp} Unknown Unit`;
   }
 }
+
+function convertToF(temp) {
+  return Math.round(temp * 9/5 + 32 * 100) / 100
+}
+
 export default City;

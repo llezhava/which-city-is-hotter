@@ -29,8 +29,8 @@ const mapStateToProps = state => {
   let { history, score, tempUnit } = state;
   let latest = history[history.length - 1];
   return {
-    title: getTitle(latest.won),
-    cities: latest.cities,
+    title: latest ? getTitle(latest.won) : "Result Page",
+    cities: latest ? latest.cities : [],
     score,
     tempUnit
   };

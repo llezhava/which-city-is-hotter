@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { createLogger } from "redux-logger";
 
-import game from "../reducers/reducers";
+import game from "../reducers/global";
 import initialState from "../reducers/initialState";
 import thunk from "redux-thunk";
 

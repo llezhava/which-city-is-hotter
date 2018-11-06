@@ -16,7 +16,7 @@ class InitialCities extends Component {
   }
 }
 
-const Question = ({ cities, score, isItBiggest }) => {
+const Question = ({ cities, score, hasError, isItBiggest, getCities }) => {
   return (
     <div>
       {" "}
@@ -30,6 +30,7 @@ const Question = ({ cities, score, isItBiggest }) => {
           </IsFetching>
         ))}
       </Cities>
+      {hasError ? <div> Encountered error. <button onClick={getCities}>Click here to retry</button> </div>: ""}
     </div>
   );
 };
@@ -37,7 +38,8 @@ const Question = ({ cities, score, isItBiggest }) => {
 const mapStateToProps = state => {
   return {
     cities: state.currentCities,
-    score: state.score
+    score: state.score,
+    hasError: state.hasFetchingError
   };
 };
 

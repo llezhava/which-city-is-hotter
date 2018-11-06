@@ -7,6 +7,7 @@ const city2 = { name: "Munich", country: "Germany", temp: 5, id: 219 };
 export default {
   tempUnit: celsius,
   score: 0,
+  hasFetchingError: true,
   currentCities: [],
   history: []
 };
