@@ -16,18 +16,16 @@ export default function game(state = initialState, action) {
   }
 }
 
-// TODO: Rewrite this function
-// IF two cities are equal, return true
 function checkHottestCity(state, action) {
   let { score, currentCities, history } = state;
 
   let currentCitiesSorted = currentCities.sort((a, b) => {
-    if (a.temp > b.temp) return -1;
-    if (a.temp < b.temp) return 1;
+    if (a.data.temp > b.data.temp) return -1;
+    if (a.data.temp < b.data.temp) return 1;
     else return 0;
   });
 
-  let isHighest = currentCitiesSorted[0].id === action.id;
+  let isHighest = Number(currentCitiesSorted[0].data.temp) === Number(action.temp);
 
   if (isHighest) {
     score += 1;

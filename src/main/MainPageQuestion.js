@@ -24,7 +24,7 @@ const Question = ({ cities, score, isItBiggest }) => {
       <Cities>
         {cities.map(city => (
           <IsFetching isFetching={city.isFetching}>
-            <Clickable fn={() => isItBiggest(city.data.id)}>
+            <Clickable fn={() => isItBiggest(city.data.temp)}>
               <City {...city.data} key={city.data.id} temp={undefined} />
             </Clickable>
           </IsFetching>
