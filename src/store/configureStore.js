@@ -1,8 +1,18 @@
-import { createStore } from 'redux'
-import game from "../reducers/reducers"
-import initialState from "../reducers/initialState"
+import { createStore, applyMiddleware, compose } from "redux";
+import { createLogger } from "redux-logger";
 
-const store = createStore(game, initialState)
+import game from "../reducers/reducers";
+import initialState from "../reducers/initialState";
+import thunk from "redux-thunk";
 
-export default store
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const logger = createLogger();
+
+const store = createStore(
+  game,
+  initialState,
+  composeEnhancers(applyMiddleware(thunk, logger))
+);
+
+export default store;

@@ -13,7 +13,7 @@ const Result = ({ cities, title, score, getNextCities, tempUnit }) => {
       <MainHeader title={title} score={score} />
       <Cities>
         {cities.map(city => (
-          <City {...city} key={city.id} unit={tempUnit} />
+          <City {...city.data} key={city.data.id} unit={tempUnit} />
         ))}
       </Cities>
       <Link to="/" ><button onClick={getNextCities}>Next Cities</button></Link>

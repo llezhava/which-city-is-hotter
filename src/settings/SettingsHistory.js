@@ -8,7 +8,7 @@ const Row = ({ cities, won, unit }) => {
     <div className={styles.row}>
       <Cities>
         {cities.map(city => (
-          <City {...city} unit={unit} />
+          <City {...city.data} unit={unit} />
         ))}
       </Cities>
       <div className="result">{won ? "WON" : "LOST"}</div>
@@ -18,7 +18,6 @@ const Row = ({ cities, won, unit }) => {
 
 const History = props => {
   let { history, tempUnit } = props;
-  console.log(history);
   return (
     <div className={styles.history}>
       <h2>History</h2>
