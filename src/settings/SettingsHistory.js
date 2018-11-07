@@ -27,7 +27,7 @@ const Row = ({ cities, won, unit, index }) => {
           <td>
             <div className={styles.result}>
               {" "}
-              <img src={won ? wonImg : lostImg} />
+              <img src={won ? wonImg : lostImg} alt={won ? "Won" : "Lost"} />
             </div>
           </td>
         </tr>
