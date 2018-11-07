@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/which-city-is-hotter/static/css/main.6e6fc791.chunk.css"
   },
   {
-    "revision": "ebd116b59b983cfbecd983582a65fc87",
+    "revision": "91e6322f0f3e82b9b88fb9f574d7c7c4",
     "url": "/which-city-is-hotter/index.html"
   }
 ];
