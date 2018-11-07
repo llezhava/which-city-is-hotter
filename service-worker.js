@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/which-city-is-hotter/precache-manifest.fe59083e0cce1d14841678a584b26b17.js"
+  "/which-city-is-hotter/precache-manifest.cdf5b5e75eac7d21690a1f4c231bcb13.js"
 );
 
 workbox.clientsClaim();
