@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import PropTypes from 'prop-types';
+
 
 const MainHeader = ({ title, score }) => {
   return (
@@ -10,5 +12,10 @@ const MainHeader = ({ title, score }) => {
     </div>
   );
 };
+
+MainHeader.propTypes = {
+  title: PropTypes.string,
+  score: PropTypes.number,
+}
 
 export default MainHeader;

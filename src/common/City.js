@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "../common/Box.js";
+import PropTypes from 'prop-types';
 
-const City = props => {
-  let { name, country, temp, unit } = props;
+const City = ({name, country, temp, unit}) => {
   return (
     <Box>
       <div>{name}</div>
@@ -11,6 +11,11 @@ const City = props => {
     </Box>
   );
 };
+
+City.propTypes = {
+  name: PropTypes.string,
+  country: PropTypes.string,
+}
 
 function getTemp(temp, unit) {
   switch (unit) {

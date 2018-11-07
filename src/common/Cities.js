@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./common.module.css";
 
-const Cities = props => {
+const Cities = ({children}) => {
   return (
     <div className={styles.listOfCities}>
-      {props.children}
+      {children}
     </div>
   );
 };
+
 
 export default Cities;

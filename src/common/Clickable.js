@@ -1,13 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import PropTypes from 'prop-types';
 
-const Clickable = props => {
-  let { fn } = props;
+const Clickable = ({fn, children}) => {
   return (
     <div onClick={fn}>
-      <Link to="/result">{props.children}</Link>
+      <Link to="/result">{children}</Link>
     </div>
   );
 };
+
+Clickable.propTypes = {
+  fn: PropTypes.func,
+}
 
 export default Clickable;

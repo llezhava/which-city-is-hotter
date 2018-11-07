@@ -19,10 +19,9 @@ const Row = ({ cities, won, unit }) => {
 };
 
 Row.propTypes = {
-  cities: PropTypes.array,
+  cities: PropTypes.arrayOf(PropTypes.object),
   won: PropTypes.bool,
   unit: PropTypes.string
-
 }
 
 const History = props => {
@@ -36,6 +35,11 @@ const History = props => {
     </div>
   );
 };
+
+History.propTypes = {
+  history: PropTypes.array,
+  tempUnit: PropTypes.string
+}
 
 
 export default History;

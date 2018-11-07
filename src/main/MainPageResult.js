@@ -1,12 +1,14 @@
 import React from "react";
+import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import {Link} from "react-router-dom"
 import MainHeader from "./MainHeader";
 import Cities from "../common/Cities";
 import City from "../common/City";
 import { getNextCities } from "../state/actions/actions";
-import { connect } from "react-redux";
-import {Link} from "react-router-dom"
 
-const Result = ({ cities, title, score, getNextCities, tempUnit }) => {
+
+const Result = ({ cities, title, score, tempUnit, getNextCities }) => {
   return (
     <div>
       {" "}
@@ -20,6 +22,14 @@ const Result = ({ cities, title, score, getNextCities, tempUnit }) => {
     </div>
   );
 };
+
+Result.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string,
+  score: PropTypes.number,
+  tempUnit: PropTypes.string,
+  getNextCities: PropTypes.func,
+}
 
 function getTitle(bool) {
   return `You ${bool ? "WON!" : "LOST!"}`;

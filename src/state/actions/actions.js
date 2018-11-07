@@ -1,5 +1,5 @@
 import * as actionTypes from "./types";
-import fetchCities from "../../services/api"
+import fetchCities from "../../services/api";
 
 export function checkIsCityHottest(temp) {
   return { type: actionTypes.CHECK_WINNER, temp };
@@ -14,7 +14,7 @@ export function getNextCities() {
     dispatch(fetchCitiesStart());
     return fetchCities()
       .then(cityList => dispatch(fetchCitiesAdd(cityList)))
-      .catch(error => dispatch(fetchCitiesFailure()))
+      .catch(error => dispatch(fetchCitiesFailure()));
   };
 }
 
@@ -27,5 +27,5 @@ export function fetchCitiesAdd(dataList) {
 }
 
 export function fetchCitiesFailure() {
-  return {type: actionTypes.FETCH_CITIES_FAILURE}
+  return { type: actionTypes.FETCH_CITIES_FAILURE };
 }

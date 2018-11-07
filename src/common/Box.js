@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./common.module.css"
 
-const Box = props => {
+const Box = ({children}) => {
   return (
     <div className={styles.box}>
-      {props.children}
+      {children}
     </div>
   );
 };
+
+
 
 export default Box;

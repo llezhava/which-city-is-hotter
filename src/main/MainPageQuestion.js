@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 import MainHeader from "./MainHeader";
 import Cities from "../common/Cities";
 import City from "../common/City";
 import Clickable from "../common/Clickable";
 import IsFetching from "../common/IsFetching";
 import { checkIsCityHottest, getNextCities } from "../state/actions/actions";
-import { connect } from "react-redux";
 
 class InitialCities extends Component {
   componentDidMount() {
@@ -34,6 +35,14 @@ const Question = ({ cities, score, hasError, isItBiggest, getCities }) => {
     </div>
   );
 };
+
+Question.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.object),
+  score: PropTypes.number,
+  hasError: PropTypes.bool,
+  isItBiggest: PropTypes.func,
+  getCities: PropTypes.func
+}
 
 const mapStateToProps = state => {
   return {

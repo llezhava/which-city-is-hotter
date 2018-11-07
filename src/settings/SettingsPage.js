@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import SettingsHistory from "./SettingsHistory";
 import SettingsUnits from "./SettingsUnits";
 import { changeTempUnit } from "../state/actions/actions";
@@ -18,6 +20,15 @@ const SettingsPage = ({ tempUnit, history, changeTempUnit }) => {
     </div>
   );
 };
+
+SettingsPage.propTypes = {
+  tempUnit: PropTypes.string,
+  history: PropTypes.array,
+  changeTempUnit: PropTypes.func
+}
+
+
+
 
 const mapStateToProps = state => {
   let { tempUnit, history } = state;

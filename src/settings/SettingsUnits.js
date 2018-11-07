@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 const Units = ({ tempUnit, changeTempUnit }) => {
   return (
@@ -30,5 +32,10 @@ const Units = ({ tempUnit, changeTempUnit }) => {
     </div>
   );
 };
+
+Units.propTypes = {
+  tempUnit: PropTypes.string,
+  changeTempUnit: PropTypes.func
+}
 
 export default Units;
