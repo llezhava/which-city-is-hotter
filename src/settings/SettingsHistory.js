@@ -11,7 +11,7 @@ const Row = ({ cities, won, unit, index }) => {
     <table className={styles.row}>
       <thead>
         <tr>
-          <th colSpan="2">Hand # {index + 1}</th>
+          <th colSpan="2">Round # {index + 1}</th>
         </tr>
       </thead>
       <tbody>
