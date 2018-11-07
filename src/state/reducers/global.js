@@ -19,13 +19,10 @@ export default function game(state = initialState, action) {
   }
 }
 
-// If temp of the city = highest temp
 function checkWinner(state, action) {
   let { score, currentCities, history } = state;
 
-  let isWinner = [...currentCities]
-    .map(a => a.data.temp)
-    .reduce(isHighestReducer(action.temp));
+  let isWinner = [...currentCities].every(c => action.temp >= c.data.temp);
 
   if (isWinner) score += 1;
 
@@ -40,13 +37,6 @@ function checkWinner(state, action) {
   });
 }
 
-function isHighestReducer(num) {
-  return (prev, curr) => {
-    if ((num > curr) & (prev !== undefined)) return true;
-    else return undefined;
-  };
-}
-
 function fetchCitiesStart(state, action) {
   return Object.assign({}, state, {
     currentCities: [
@@ -57,9 +47,7 @@ function fetchCitiesStart(state, action) {
   });
 }
 
-// TODO: ADD CHECK CITIES FUNCTIONALITY HERE
 function fetchCitiesAdd(state, action) {
-  
   let currentCities = action.dataList.map(data => {
     try {
       let { main, sys, name, id } = data;
@@ -67,13 +55,17 @@ function fetchCitiesAdd(state, action) {
       let country = sys.country;
       return { data: { name, country, temp, id }, isFetching: false };
     } catch (err) {
-      return { data: {}, isFetching: false };
+      return undefined;
     }
   });
 
-  return Object.assign({}, state, {
-    currentCities
-  });
+  let hasError = currentCities.includes(undefined);
+
+  if (hasError) return fetchCitiesFailure(state, action);
+  else
+    return Object.assign({}, state, {
+      currentCities
+    });
 }
 
 function fetchCitiesFailure(state, action) {
