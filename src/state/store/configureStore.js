@@ -9,10 +9,15 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const logger = createLogger();
 
+let middleWare =
+  process.env.NODE_ENV === "production"
+    ? applyMiddleware(thunk)
+    : applyMiddleware(thunk, logger);
+
 const store = createStore(
   game,
   initialState,
-  composeEnhancers(applyMiddleware(thunk, logger))
+  composeEnhancers(middleWare)
 );
 
 export default store;

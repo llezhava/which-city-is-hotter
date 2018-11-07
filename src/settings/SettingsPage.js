@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import SettingsHistory from "./SettingsHistory";
 import SettingsUnits from "./SettingsUnits";
 import Button from "../common/Button";
@@ -12,11 +11,13 @@ import styles from "./settings.module.css";
 
 const SettingsPage = ({ tempUnit, history, changeTempUnit }) => {
   return (
-    <div className={styles.main}>
-      <div className={styles.button}>
+    <div className={styles.root}>
+    <header className={styles.header}>
+      <nav className={styles.button}>
         <Button path="/">Back</Button>
-      </div>
+      </nav>
       <h1>Settings</h1>
+      </header>
       <SettingsUnits tempUnit={tempUnit} changeTempUnit={changeTempUnit} />
       <SettingsHistory history={history} tempUnit={tempUnit} />
     </div>

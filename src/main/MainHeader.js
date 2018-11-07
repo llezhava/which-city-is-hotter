@@ -6,15 +6,15 @@ import styles from "./main.module.css";
 
 const MainHeader = ({ title, score }) => {
   return (
-    <div className={styles.header}>
-      <div className={styles.button}>
+    <header className={styles.header}>
+      <nav className={styles.button}>
         <Link to="/settings">
           <Button>Settings</Button>
         </Link>
-      </div>
+      </nav>
       <h1>{title}</h1>
       <div>Score: {score}</div>
-    </div>
+    </header>
   );
 };
 

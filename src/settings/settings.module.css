@@ -1,11 +1,22 @@
-.main {
+.root {
   display: flex;
   flex-direction: column;
 }
 
-.history {
+.header h1 {
+  margin-top: 0px;
+}
+
+ .history {
   display: flex;
   flex-direction: column;
+} 
+
+.rows {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
 }
 
 .row {
@@ -14,13 +25,6 @@
 
 .row th {
   border: 0.2em solid rgb(241, 171, 78);
-}
-
-.rows {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap-reverse;
-  justify-content: center;
 }
 
 .button {
