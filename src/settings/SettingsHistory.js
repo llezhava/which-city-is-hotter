@@ -5,21 +5,53 @@ import Cities from "../common/Cities";
 import City from "../common/City";
 import wonImg from "./assets/won.png";
 import lostImg from "./assets/lost.png";
-
-const Row = ({ cities, won, unit }) => {
+{
+  /* <table>
+  <tr>
+    <th>Name</th>
+    <th>ID</th>
+    <th>Favorite Color</th>
+  </tr>
+  <tr>
+    <td>Jim</td>
+    <td>00001</td>
+    <td>Blue</td>
+  </tr>
+  <tr>
+    <td>Sue</td>
+    <td>00002</td>
+    <td>Red</td>
+  </tr>
+  <tr>
+    <td>Barb</td>
+    <td>00003</td>
+    <td>Green</td>
+  </tr>
+</table> */
+}
+const Row = ({ cities, won, unit, index }) => {
   return (
-    <div className={styles.row}>
-      <Cities>
-        {cities.map(city => (
-          <City {...city.data} unit={unit} key={city.data.id} />
-        ))}
-      </Cities>
+    <table className={styles.row}>
+      <tr>
+        <th colSpan="2">Hand # {index + 1}</th>
+      </tr>
+      <tr>
+        <td>
+          <Cities>
+            {cities.map(city => (
+              <City {...city.data} unit={unit} key={city.data.id} />
+            ))}
+          </Cities>
+        </td>
 
-      <div className={styles.result}>
-        {" "}
-        <img src={won ? wonImg : lostImg} />
-      </div>
-    </div>
+        <td>
+          <div className={styles.result}>
+            {" "}
+            <img src={won ? wonImg : lostImg} />
+          </div>
+        </td>
+      </tr>
+    </table>
   );
 };
 
@@ -45,7 +77,7 @@ const History = props => {
       </div>
       <div className={styles.rows}>
         {history.map((data, index) => (
-          <Row {...data} unit={tempUnit} key={index} />
+          <Row {...data} unit={tempUnit} key={index} index={index} />
         ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const IsFetching = ({ isFetching, children }) => {
   if (isFetching) {
-    return <Box>"Loading..."</Box>;
+    return <Box>Loading...</Box>;
   }
   return <React.Fragment>{children}</React.Fragment>;
 };
