@@ -22,9 +22,9 @@ const Question = ({ cities, score, hasError, isItBiggest, getCities }) => {
       {" "}
       <MainHeader title="Which City is hotter?" score={score} />
       <Cities>
-        {cities.map(city => (
-          <IsFetching isFetching={city.isFetching}>
-            <Clickable fn={() => isItBiggest(city.data.temp)}>
+        {cities.map((city, index) => (
+          <IsFetching isFetching={city.isFetching} key={index} >
+            <Clickable fn={() => isItBiggest(city.data.temp)} key={city.data.id}>
               <City {...city.data} key={city.data.id} temp={undefined} />
             </Clickable>
           </IsFetching>

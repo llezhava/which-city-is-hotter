@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MainHeader from "./MainHeader";
 import Cities from "../common/Cities";
 import City from "../common/City";

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Box from "../common/Box.js";
 
 const City = props => {
