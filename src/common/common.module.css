@@ -1,14 +1,41 @@
 .box {
-    border: 1px solid black;
-    width: 7em;
-    height: 7em;
+    background-color: rgb(235, 149, 37);
+    border-radius: 5%;
+    width: 10em;
+    height: 10em;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-overflow: ellipsis;
     margin: 1em;
+    padding: 1em;
 }
 
 .listOfCities {
     display: flex;
     justify-content: center;
+}
+
+.listOfCities a {
+    color: black;
+    text-decoration: none;
+}
+
+ /* Single item in the City component */
+.item {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2%;
+}
+
+.button {
+    background-color: rgb(235, 149, 37);
+    border-radius: 10%;
+    padding: 1em;
+}
+
+a button  {
+    text-decoration: none;
+    /* color: white; */
 }

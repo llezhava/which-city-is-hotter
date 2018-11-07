@@ -1,13 +1,14 @@
 import React from "react";
 import Box from "../common/Box.js";
 import PropTypes from 'prop-types';
+import styles from "./common.module.css"
 
 const City = ({name, country, temp, unit}) => {
   return (
     <Box>
-      <div>{name}</div>
-      <div>{country}</div>
-      {temp ? <div>{getTemp(temp, unit)}</div> : ""}
+      <div className={styles.item}>{name}</div>
+      <div className={styles.item}>{country}</div>
+      {temp ? <div className={styles.item}>{getTemp(temp, unit)}</div> : ""}
     </Box>
   );
 };

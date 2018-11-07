@@ -6,6 +6,8 @@ import Cities from "../common/Cities";
 import City from "../common/City";
 import Clickable from "../common/Clickable";
 import IsFetching from "../common/IsFetching";
+import Button from "../common/Button"
+import styles from "./main.module.css"
 import { checkIsCityHottest, getNextCities } from "../state/actions/actions";
 
 class InitialCities extends Component {
@@ -31,7 +33,7 @@ const Question = ({ cities, score, hasError, isItBiggest, getCities }) => {
           </IsFetching>
         ))}
       </Cities>
-      {hasError ? <div> Encountered error. <button onClick={getCities}>Click here to retry</button> </div>: ""}
+      {hasError ? <div className={styles.error}> Failed to load cities -  <Button onClick={getCities}>Click here to retry</Button> </div>: ""}
     </div>
   );
 };

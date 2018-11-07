@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 import MainHeader from "./MainHeader";
 import Cities from "../common/Cities";
 import City from "../common/City";
+import Button from "../common/Button"
 import { getNextCities } from "../state/actions/actions";
 
 
@@ -18,7 +19,7 @@ const Result = ({ cities, title, score, tempUnit, getNextCities }) => {
           <City {...city.data} key={city.data.id} unit={tempUnit} />
         ))}
       </Cities>
-      <Link to="/" ><button onClick={getNextCities}>Next Cities</button></Link>
+      <Button path={"/"}>Next Cities</Button>
     </div>
   );
 };

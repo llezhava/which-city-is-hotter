@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    position: absolute;
+}
+
+.error {
+    padding: 1em;
+    background-color: rgba(155, 100, 25, 25);
+    border-radius: 5px;
+    color: black;
+}
+
+.error button {
+    background-color: brown;
+}

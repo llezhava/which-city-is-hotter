@@ -12,4 +12,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    /* width: 5em; */
+}
+
+.rows {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.button {
+    position: absolute;
+}
+
+.result img {
+    height: 45pt;
 }
